@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+  <title>wcc | заготовка</title>
+
+  <link href="css/normalize.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+
+  <!-- Подключаем BaseComponent глобально -->
+  <script type="module" src="wcc/base/BaseComponent.js"></script>
+  <!-- <script type="module" src="https://illicchpv.github.io/wcc-father/wcc/base/BaseComponent.js"></script> -->
+  <!-- wcc/** -->
+  <script data-wcc type="module" src="wcc/WccMain/WccMain.js"></script>
+  <!-- <script data-wcc type="module" src="https://illicchpv.github.io/wcc-father/wcc/WccMain/WccMain.js"></script> -->
+  <script data-wcc type="module" src="wcc/WccContent/WccContent.js"></script>
+  <!-- <script data-wcc type="module" src="https://illicchpv.github.io/wcc-father/wcc/WccContent/WccContent.js"></script> -->
+
+  <!--  -->
+  <script type="module" src="js/main.js"></script>
+
+  <link href="css/media.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <div style="width: 90%; margin: 0 auto; padding: 20px;">
+
+    <wcc-main>
+
+      <wcc-content>тут-content-слот</wcc-content>
+
+    </wcc-main>
+
+  </div>
+
+</body>
+
+</html>

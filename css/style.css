@@ -1,0 +1,40 @@
+:root {
+	--brand-900: #bf7506;
+	--brand-500: #dd9c3c;
+	--brand-100: #f4debe;
+	--neutral-900: #211b12;
+	--neutral-500: #83807c;
+	--neutral-100: #e0dedc;
+}
+
+:root {
+  --font-family: sans-serif;
+  --container-w: 870px;
+  --container-x-padding: 10px;
+}
+
+:root {
+  --font-family: sans-serif;
+  --second-family: sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: var(--font-family);
+}
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  max-width: calc(var(--container-w) + 2 * var(--container-x-padding));
+  padding-inline: var(--container-x-padding);
+  width: 100%;
+  margin-inline: auto;
+}
