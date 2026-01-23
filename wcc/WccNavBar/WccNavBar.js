@@ -1,7 +1,7 @@
-// подключить: <script data-wcc type="module" src="wcc/WccMain/WccMain.js"></script>
-const myTemplate = ``; // для прод, вставить сюда содержимое файла WccMain.html
+// подключить: <script data-wcc type="module" src="wcc/WccNavBar/WccNavBar.js"></script>
+const myTemplate = ``; // для прод, вставить сюда содержимое файла WccNavBar.html
 //
-export class WccMain extends BaseComponent {
+export class WccNavBar extends BaseComponent {
   constructor() {
     super(); this._refs = {};
   }
@@ -60,4 +60,4 @@ export class WccMain extends BaseComponent {
   // }
 }
 
-BaseComponent.registerWcc(WccMain, import.meta.url, myTemplate);
+BaseComponent.registerWcc(WccNavBar, import.meta.url, myTemplate);
