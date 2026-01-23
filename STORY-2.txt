@@ -1,2 +1,13 @@
+Light DOM web components - 2 (начинаем верстку)
+---
+
+верстка NavBar при помощи BaseComponent
+
+см. https://github.com/illicchpv/wcc-father-sample
+
+======================================
+
 + wcc-nav-link
-+ wcc-nav-bar
++ wcc-Light DOM web components - начинаем верстку
+
+https://github.com/illicchpv/wcc-father-sample

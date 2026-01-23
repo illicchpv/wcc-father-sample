@@ -1,4 +1,9 @@
-Title: бездомные веб компоненты (Light DOM web components)
+Light DOM web components - 1 (бездомные веб компоненты)
+---
+Light DOM web components основанный на BaseComponent причины и смысл создания.
+
+см. https://github.com/illicchpv/wcc-father-sample
+
 ======================================
 https://lit.dev/
 	LIT Web Components
