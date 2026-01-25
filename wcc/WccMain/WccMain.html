@@ -1,0 +1,60 @@
+<style>
+  .wccMain {
+    display: flex;
+    align-items: center;
+    gap: 27px;
+  }
+
+  .wccMain__text {
+    max-width: 510px;
+  }
+
+  .wccMain__hi {
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 1.25;
+    letter-spacing: -0.03em;
+    color: var(--neutral-900);
+  }
+
+  .wccMain__info {
+    margin-top: 8px;
+    margin-bottom: 24px;
+
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 1.35;
+    letter-spacing: -0.02em;
+    color: var(--neutral-900);
+  }
+  .wccMain__primary {
+    color: var(--brand-900);
+  }
+
+  .wccMain__controls {
+    display: flex;
+    align-items: center;
+    gap: 70px;
+  }
+</style>
+<main class="wccMain container">
+  <img src="img/avatar-src.png" alt="avatar">
+
+  <div class="wccMain__text">
+    <h1 class="wccMain__hi">Привет 👋</h1>
+
+    <p class="wccMain__info">
+      <span class="wccMain__primary">Я фронтенд-разработчик и веб-дизайнер</span>
+      Меня зовут Артем Исламов и я делаю сайты для людей и компаний
+    </p>
+
+    <div class="wccMain__controls">
+      <wcc-social></wcc-social>
+
+      <wcc-button btn-type="link" href="cv.pdf" attr="download">
+        <img slot="img" src="img/download.svg" alt="download">
+        <span slot="text">Скачать резюме</span>
+      </wcc-button>
+    </div>
+  </div>
+</main>

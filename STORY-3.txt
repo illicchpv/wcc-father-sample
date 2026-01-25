@@ -1,10 +1,8 @@
 Light DOM web components - 3 (верстка main секции)
 ---
 
-- картинки из макета
-- чистим js 
-- wccNavBar container
-- надо сделать:
-  WccMain <wcc-main></wcc-main>
-  WccSocial <wcc-social></wcc-social>
-  WccButton <wcc-button button-type="link" href="#aaa" attr="aaaa"></wcc-button>
+WccMain
+WccSocial
+WccButton
+
+-   у svg при hover надо менять цвет линий
