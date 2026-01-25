@@ -1,0 +1,13 @@
+Light DOM web components - 3 (верстка main секции)
+---
+
+- картинки из макета
+- чистим js 
+- надо сделать:
+  WccMain
+  WccSocial
+  WccButton
+
+- забыл 
+  wccNavBar => wccNavBar container
+  wccMain => wccMain container
