@@ -1,8 +1,13 @@
 Light DOM web components - 3 (верстка main секции)
 ---
+верстка WccMain при помощи BaseComponent
+
+см. https://github.com/illicchpv/wcc-father-sample
 
 WccMain
 WccSocial
 WccButton
 
+доделать:
 -   у svg при hover надо менять цвет линий
+
