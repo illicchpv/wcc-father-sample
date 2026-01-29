@@ -194,8 +194,9 @@ export class BaseComponent extends HTMLElement {
    * Шаблон ищется в той же директории, где находится файл компонента.
    * 
    * @param {string} baseUrl - URL текущего модуля (передайте import.meta.url из наследника)
+   * @param {string} [fileName=null] - Опциональное имя файла шаблона (например, 'MyComponent.template')
    */
-  async loadTemplate(baseUrl) {
+  async loadTemplate(baseUrl, fileName = null) {
     // Сохраняем baseUrl для последующего разрешения путей
     this._baseUrl = baseUrl;
 
@@ -234,7 +235,7 @@ export class BaseComponent extends HTMLElement {
 
     // 3. Загружаем файл (один запрос на класс)
     if (!this.constructor._fetchPromise) {
-      const templateName = `${this.constructor.name}.html`;
+      const templateName = fileName || `${this.constructor.name}.html`;
       const url = new URL(templateName, baseUrl).href;
 
       this.constructor._fetchPromise = (async () => {
@@ -243,7 +244,31 @@ export class BaseComponent extends HTMLElement {
           throw new Error(`Status ${response.status}`);
         }
         const text = await response.text();
-        const processed = this._processTemplate(text || ' ');
+
+        // Очистка от инъекций Live Server (скрипты ломают слоты и SVG)
+        // Сначала чистим регуляркой, чтобы не сломать парсер
+        let cleanText = text
+          .replace(/<!--\s*Code injected by live-server\s*-->/gi, "")
+          .replace(/<script[\s\S]*?<\/script>/gi, "");
+          
+        // Удаляем обертку body если она есть (использовалась для защиты от инъекций)
+        cleanText = cleanText.replace(/<\/?body>/gi, "");
+
+        try {
+          // Дополнительная зачистка через DOM (на случай если что-то пропустили)
+          const temp = document.createElement('template');
+          temp.innerHTML = cleanText;
+          
+          const scripts = temp.content.querySelectorAll('script');
+          if (scripts.length > 0) {
+            scripts.forEach(s => s.remove());
+            cleanText = temp.innerHTML;
+          }
+        } catch (e) {
+          console.warn('[BaseComponent] Sanitization failed', e);
+        }
+
+        const processed = this._processTemplate(cleanText || ' ');
         // Сразу сохраняем в кэш, чтобы другие экземпляры получили его мгновенно
         this.constructor._cachedHtml = processed;
         return processed;
