@@ -194,9 +194,8 @@ export class BaseComponent extends HTMLElement {
    * Шаблон ищется в той же директории, где находится файл компонента.
    * 
    * @param {string} baseUrl - URL текущего модуля (передайте import.meta.url из наследника)
-   * @param {string} [fileName=null] - Опциональное имя файла шаблона (например, 'MyComponent.template')
    */
-  async loadTemplate(baseUrl, fileName = null) {
+  async loadTemplate(baseUrl) {
     // Сохраняем baseUrl для последующего разрешения путей
     this._baseUrl = baseUrl;
 
@@ -235,7 +234,7 @@ export class BaseComponent extends HTMLElement {
 
     // 3. Загружаем файл (один запрос на класс)
     if (!this.constructor._fetchPromise) {
-      const templateName = fileName || `${this.constructor.name}.html`;
+      const templateName = `${this.constructor.name}.html`;
       const url = new URL(templateName, baseUrl).href;
 
       this.constructor._fetchPromise = (async () => {
