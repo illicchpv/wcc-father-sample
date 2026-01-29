@@ -1,19 +1,14 @@
 <style>
   .wccButton {
-    display: flex;
-    align-items: center;
-    gap: 4px;
+    display: inline-block;
     padding: 7px 8px 5px;
     border: none;
     border-bottom: 2px solid var(--brand-900);
-
     font-weight: 700;
     font-size: 16px;
     line-height: 1.5;
     color: var(--neutral-900);
-
     background-color: transparent;
-
     transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
   }
 
@@ -21,16 +16,26 @@
     background-color: var(--brand-900);
     color: #fff;
   }
+
+  .wccButton__content {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
 </style>
 <!-- if(this.btnType==='link') -->
 <a class="wccButton" href="#!">
-  <slot name="img"></slot>
-  <slot name="text"></slot>
+  <div class="wccButton__content">
+    <slot name="img"></slot>
+    <slot name="text"></slot>
+  </div>
 </a>
 <!-- endif -->
 <!-- if(this.btnType!=='link') -->
 <button class="wccButton" type="submit">
-  <slot name="img"></slot>
-  <slot name="text"></slot>
+  <div class="wccButton__content">
+    <slot name="img"></slot>
+    <slot name="text"></slot>
+  </div>
 </button>
 <!-- endif -->
