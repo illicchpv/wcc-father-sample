@@ -1,0 +1,21 @@
+Light DOM web components - 3 (проблемы, исправления, верстка WccSkills)
+---
+верстка Макета при помощи BaseComponent
+
+сделать так, чтобы svg иконки у кнопок меняли цвет при ховере.
+в WccMain заменяем img на svg и проставляем в svg currentColor
+  download.svg
+  demo.svg
+  code.svg
+  send.svg
+
+макет https://www.figma.com/design/4GVHROE2r9DgF9gauTGkf8/Developer-Portfolio?node-id=0-1&p=f&t=OESpsE1XtWMVexro-0
+см. https://github.com/illicchpv/wcc-father-sample
+
+WccPortfolio
+WccCard
+WccSkills
+
+доделать:
+-   у svg при hover надо менять цвет линий
+
