@@ -1,0 +1,17 @@
+Light DOM web components - 5 (верстка секции portfolio)
+---
+верстка Макета при помощи BaseComponent
+
+  WccPortfolio
+  WccCard
+
+  отрисовка списка проектов из portfolio-projects.json
+
+макет https://www.figma.com/design/4GVHROE2r9DgF9gauTGkf8/Developer-Portfolio?node-id=0-1&p=f&t=OESpsE1XtWMVexro-0
+
+см. https://github.com/illicchpv/wcc-father-sample
+
+доделки:
+- в внутреннем шаблоне: Мобильное приложение => ${this.item.title}
+- удалить _loadProjects()
+- почистить 

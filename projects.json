@@ -1,0 +1,20 @@
+[
+  {
+    "img": "img/cards/image1.png",
+    "imgAlt": "мобильное приложение",
+    "title": "Мобильное приложение",
+    "skillList": "HTML,CSS,JavaScript,Git,Vitejs",
+    "text": "1Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "codeHref": "#!1",
+    "demoHref": "#!2"
+  },
+  {
+    "img": "img/cards/image2.png",
+    "imgAlt": "Одностраничный промо-сайт",
+    "title": "Одностраничный промо-сайт",
+    "skillList": "HTML,CSS",
+    "text": "2Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "codeHref": "#!",
+    "demoHref": "#!"
+  }
+]

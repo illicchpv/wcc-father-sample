@@ -10,6 +10,7 @@ Light DOM web components - 4 (проблемы LiveServer, исправлени�
   send.svg
 
 макет https://www.figma.com/design/4GVHROE2r9DgF9gauTGkf8/Developer-Portfolio?node-id=0-1&p=f&t=OESpsE1XtWMVexro-0
+
 см. https://github.com/illicchpv/wcc-father-sample
 
 WccSkills
