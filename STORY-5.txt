@@ -5,7 +5,7 @@ Light DOM web components - 5 (верстка секции portfolio)
   WccPortfolio
   WccCard
 
-  отрисовка списка проектов из portfolio-projects.json
+  отрисовка списка проектов из projects.json
 
 макет https://www.figma.com/design/4GVHROE2r9DgF9gauTGkf8/Developer-Portfolio?node-id=0-1&p=f&t=OESpsE1XtWMVexro-0
 

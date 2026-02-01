@@ -30,8 +30,8 @@
 
 <!-- innerTemplate:innerTemplateName -->
 <wcc-card>
-  <img slot="img" src="${this.item.img}" alt="${this.item.imgAlt}">
-  <h3 class="wccCard__title" slot="title">Мобильное приложение</h3>
+  <img slot="img" class="wccCard__img" src="${this.item.img}" alt="${this.item.imgAlt}">
+  <h3 class="wccCard__title" slot="title">${this.item.title}</h3>
   <wcc-skills list="HTML,CSS,JavaScript,Git,Vitejs" slot="skills"></wcc-skills>
 
   <p class="wccCard__text" slot="text">${this.item.text}</p>
