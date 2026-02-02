@@ -1,6 +1,7 @@
 // | Имя сниппета             | prefix          | scope      | описание                                   |
 // |--------------------------|-----------------|------------|--------------------------------------------|
 // | WCC Component Class      | wcc=class       | javascript | Полный класс компонента BaseComponent      |
+// | WCC Component Min Class  | wcc=min-class   | javascript | Минимальный класс компонента BaseComponent |
 // | WCC HTML Skeleton        | wcc=html        | html       | Каркас HTML + style для компонента         |
 // | WCC Properties           | wcc=props       | javascript | Блок static get properties                 |
 // | WCC Property Item        | wcc=prop-item   | javascript | Одно свойство в блоке properties           |
@@ -22,7 +23,7 @@
     "prefix": "wcc=class",
     "scope": "javascript",
     "body": [
-      "// подключить: <script data-wcc type=\"module\" src=\"wcc/${TM_FILENAME_BASE}/${TM_FILENAME_BASE}.js\"></script>",
+      "// подключить: <script data-wcc type=\"module\" src=\"${TM_DIRECTORY/.*[\\\\\\/]([^\\\\\\/]+)[\\\\\\/]?$/$1/}/${TM_FILENAME_BASE}/${TM_FILENAME_BASE}.js\"></script>",
       "const myTemplate = ``; // для прод, вставить сюда содержимое файла ${TM_FILENAME_BASE}.html",
       "//",
       "export class ${TM_FILENAME_BASE} extends BaseComponent {",
@@ -87,6 +88,29 @@
       "BaseComponent.registerWcc(${TM_FILENAME_BASE}, import.meta.url, myTemplate);"
     ],
     "description": "Полный класс компонента BaseComponent (с закомментированными примерами)"
+  },
+  "WCC Component Min Class": {
+    "prefix": "wcc=min-class",
+    "scope": "javascript",
+    "body": [
+      "// подключить: <script data-wcc type=\"module\" src=\"${TM_DIRECTORY/.*[\\\\\\/]([^\\\\\\/]+)[\\\\\\/]?$/$1/}/${TM_FILENAME_BASE}/${TM_FILENAME_BASE}.js\"></script>",
+      "const myTemplate = ``; // для прод, вставить сюда содержимое файла ${TM_FILENAME_BASE}.html",
+      "//",
+      "export class ${TM_FILENAME_BASE} extends BaseComponent {",
+      "  constructor() {",
+      "    super();",
+      "  }",
+      "  connectedCallback() {",
+      "    this.loadTemplate(import.meta.url);",
+      "  }",
+      "  render() {",
+      "    super.render();",
+      "  }",
+      "}",
+      "",
+      "BaseComponent.registerWcc(${TM_FILENAME_BASE}, import.meta.url, myTemplate);"
+    ],
+    "description": "Минимальный класс компонента BaseComponent"
   },
   "WCC HTML Skeleton": {
     "prefix": "wcc=html",
