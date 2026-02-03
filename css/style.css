@@ -16,6 +16,8 @@
 :root {
   --font-family: sans-serif;
   --second-family: sans-serif;
+
+  --input-width: 440px;
 }
 
 html {
@@ -31,7 +33,7 @@ a {
   text-decoration: none;
   color: inherit;
 }
-h1,h2,h3,h4,ul {
+h1,h2,h3,h4,ul,p {
   margin: 0;
 }
 .container {

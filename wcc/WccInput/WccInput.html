@@ -1,0 +1,57 @@
+<style>
+  .wccInput__group {
+    position: relative;
+    padding-top: 10px;
+  }
+
+  .wccInput {
+    display: inline-block;
+    border: 3px solid var(--neutral-100);
+    border-radius: 4px;
+    height: 56px;
+    width: var(--input-width);
+    padding: 10px;
+    outline: none;
+    transition: border-color 0.3s ease-in-out;
+  }
+
+  .wccInput:hover {
+    border-color: var(--neutral-500);
+  }
+
+  .wccInput:not(:placeholder-shown) {
+    border-color: var(--neutral-900);
+  }
+
+  .wccInput:focus {
+    border-color: var(--brand-900);
+  }
+
+  .wccInput.textarea {
+    min-height: 150px;
+    resize: none;
+  }
+
+  .wccInput__label {
+    position: absolute;
+    background-color: #fff;
+    left: 10px;
+    top: 0;
+    padding: 0 8px;
+
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--neutral-900);
+  }
+</style>
+
+<div class="wccInput__group">
+  <label>
+    <!-- <input class="wccInput" type="text" name="client_name" placeholder=" "> -->
+    <textarea class="wccInput textarea" type="text" name="client_name" placeholder=" "></textarea>
+    <span class="wccInput__label">Ваше имя</span>
+  </label>
+</div>
+
+<body></body>

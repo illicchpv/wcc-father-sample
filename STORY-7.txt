@@ -1,4 +1,4 @@
-Light DOM web components - 6 (вёрстка секций WccDeveloper и WccFooter)
+Light DOM web components - 7 (вёрстка секций WccDeveloper и WccFooter)
 ---
 верстка Макета при помощи BaseComponent
 
@@ -11,6 +11,6 @@ Light DOM web components - 6 (вёрстка секций WccDeveloper и WccFoo
 см. https://github.com/illicchpv/wcc-father-sample
 
 
-надо переделать:
+?надо переделать:
   - директорию wcc переименовать components
   - создать директорию sections и переместить туда компоненты-секции
