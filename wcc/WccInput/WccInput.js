@@ -10,54 +10,65 @@ export class WccInput extends BaseComponent {
   }
   static get properties() {
     return {
-      // counterValue: {type: Number, attribute: 'counter-value', default: 0},
+      type: {type: String, attribute: 'type', default: 'text'},
+      name: {type: String, attribute: 'name', default: 'noName'},
+      label: {type: String, attribute: 'label', default: 'label'},
+      value: {type: String, attribute: 'value', default: ''},
+      required: {type: Boolean, attribute: 'required'},
     };
   }
 
   render() {
     super.render();
-    // this._initView();       // <--- Раскомментировать для Шага 2
-    // this._initListeners();  // <--- Раскомментировать для Шага 3
+    this._initView();       // <--- Раскомментировать для Шага 2
+    this._initListeners();  // <--- Раскомментировать для Шага 3
   }
 
   // ============================================================
   // Шаг 2: Кэширование и обновление отображения
   // ============================================================
-  
-  // _initView() {
-  //   this._cacheElements();
-  //   this.updateView();
-  // }
 
-  // _cacheElements() {
-  //   this._refs = {
-  //     value: this.querySelector('.counter-value'),
-  //     btnInc: this.querySelector('.counter-inc'),
-  //   };
-  // }
+  _initView() {
+    this._cacheElements();
+    this.updateView();
+  }
 
-  // updateView() {
-  //   const {value} = this._refs;
-  //   if (!value) return;
-  //   value.textContent = this.counterValue;
-  // }
+  _cacheElements() {
+    this._refs = {
+      wccInputEl: this.querySelector('.wccInput'),
+      labelEl: this.querySelector('.wccInput__label'),
+    };
+  }
 
-  // propertyChangedCallback(name, oldValue, newValue) {
-  //   if (this.html) {
-  //     this.updateView();
-  //   }
-  // }
+  updateView() {
+    const {wccInputEl, labelEl} = this._refs;
+    if (wccInputEl) {
+      if (this.type !== 'textarea') {
+        wccInputEl.type = this.type;
+        wccInputEl.innerText = this.value;
+      }
+      wccInputEl.name = this.name;
+      wccInputEl.required = this.required;
+      wccInputEl.value = this.value;
+    }
+    if (labelEl) labelEl.textContent = this.label;
+  }
+
+  propertyChangedCallback(name, oldValue, newValue) {
+    if (this.html) {
+      this.updateView();
+    }
+  }
 
   // ============================================================
   // Шаг 3: Обработчики событий
   // ============================================================
 
-  // _initListeners() {
-  //   this.onRef('btnInc', 'click', (e) => {
-  //     this.counterValue++;
-  //     this.emit('event-name', {...this.values, component: this, event: e, });
-  //   });
-  // }
+  _initListeners() {
+    this.onRef('wccInputEl', 'change', (e) => {
+      this.emit('wcc-input-changed', {...this.values, component: this, event: e, });
+    });
+  }
 }
 
 BaseComponent.registerWcc(WccInput, import.meta.url, myTemplate);

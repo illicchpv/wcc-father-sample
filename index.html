@@ -26,6 +26,7 @@
   <script data-wcc type="module" src="wcc/WccDeveloper/WccDeveloper.js"></script>
   <script data-wcc type="module" src="wcc/WccFooter/WccFooter.js"></script>
   <script data-wcc type="module" src="wcc/WccInput/WccInput.js"></script>
+  <script data-wcc type="module" src="wcc/WccFeedback/WccFeedback.js"></script>
 
   <!--  -->
   <script type="module" src="js/main.js"></script>
@@ -35,7 +36,7 @@
 
 <body>
 
-  <!-- <wcc-nav-bar></wcc-nav-bar> -->
+  <wcc-nav-bar></wcc-nav-bar>
 
   <!-- <wcc-main></wcc-main> -->
 
@@ -45,12 +46,15 @@
 
   <!-- <wcc-developer></wcc-developer> -->
 
+  <wcc-feedback id="feedback"></wcc-feedback>
+
   <!-- <wcc-footer></wcc-footer> -->
 
-  <div style="padding: 20px;">
-
-    <wcc-input></wcc-input>
-  </div>
+  <!-- <div style="padding: 20px; width: 600px; background-color: azure;">
+    <wcc-input type="text" label="Ваше имя" name="client_name" required></wcc-input>
+    <wcc-input id="email" type="email" label="Email" name="client_email" required></wcc-input>
+    <wcc-input type="textarea" label="Сообщение" name="client_message"></wcc-input>
+  </div> -->
 
 </body>
 

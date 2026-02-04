@@ -9,7 +9,7 @@
     border: 3px solid var(--neutral-100);
     border-radius: 4px;
     height: 56px;
-    width: var(--input-width);
+    width: 100%;
     padding: 10px;
     outline: none;
     transition: border-color 0.3s ease-in-out;
@@ -48,8 +48,13 @@
 
 <div class="wccInput__group">
   <label>
-    <!-- <input class="wccInput" type="text" name="client_name" placeholder=" "> -->
-    <textarea class="wccInput textarea" type="text" name="client_name" placeholder=" "></textarea>
+    <!-- if(this.type==='textarea') -->
+      <textarea class="wccInput textarea" name="client_name" placeholder=" " autocomplete="off"></textarea>
+    <!-- endif -->
+    <!-- if(this.type!=='textarea') -->
+      <input class="wccInput" type="text" name="client_name" placeholder=" " autocomplete="off">
+    <!-- endif -->
+    
     <span class="wccInput__label">Ваше имя</span>
   </label>
 </div>

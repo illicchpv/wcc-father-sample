@@ -11,13 +11,12 @@
   --font-family: sans-serif;
   --container-w: 870px;
   --container-x-padding: 10px;
+  --container-feedback: 435px;
 }
 
 :root {
   --font-family: sans-serif;
   --second-family: sans-serif;
-
-  --input-width: 440px;
 }
 
 html {
@@ -38,6 +37,12 @@ h1,h2,h3,h4,ul,p {
 }
 .container {
   max-width: calc(var(--container-w) + 2 * var(--container-x-padding));
+  padding-inline: var(--container-x-padding);
+  width: 100%;
+  margin-inline: auto;
+}
+.container-feedback {
+  max-width: calc(var(--container-feedback) + 2 * var(--container-x-padding));
   padding-inline: var(--container-x-padding);
   width: 100%;
   margin-inline: auto;
