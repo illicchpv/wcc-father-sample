@@ -1,0 +1,32 @@
+Light DOM web components - 9 ( секция WccDecor, относительные расположения секций, адаптив)
+---
+верстка Макета при помощи BaseComponent
+
+  WccDecor
+  index.html
+  style.css
+  media.css
+
+макет https://www.figma.com/design/4GVHROE2r9DgF9gauTGkf8/Developer-Portfolio?node-id=0-1&p=f&t=OESpsE1XtWMVexro-0
+
+см. https://github.com/illicchpv/wcc-father-sample
+
+
+
+
+
+
+
+
+
+
+
+
+доделки:
+кнопку 'отправить' сместить направо
+	.wccFeedback__form text-align: right;
+
+?надо переделать:
+  - директорию wcc переименовать components
+  - создать директорию sections и переместить туда компоненты-секции
+
