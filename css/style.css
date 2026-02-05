@@ -24,6 +24,7 @@ html {
 }
 body {
   font-family: var(--font-family);
+  margin-bottom: 20px;
 }
 li {
   list-style: none;
@@ -46,4 +47,35 @@ h1,h2,h3,h4,ul,p {
   padding-inline: var(--container-x-padding);
   width: 100%;
   margin-inline: auto;
+}
+
+/*  */
+
+wcc-nav-bar {
+  display: block;
+  margin-top: 40px;
+}
+wcc-main {
+  display: block;
+  margin-top: 70px;
+}
+wcc-portfolio {
+  display: block;
+  margin-top: 80px;
+}
+wcc-developer {
+  display: block;
+  margin-top: 100px;
+}
+wcc-my-skills {
+  display: block;
+  margin-top: 40px;
+}
+wcc-decor {
+  display: block;
+  margin-top: 100px;
+}
+wcc-footer {
+  display: block;
+  margin-top: 120px;
 }

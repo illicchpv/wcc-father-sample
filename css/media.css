@@ -1,2 +1,26 @@
-@media (max-width: 640px) {
+@media (max-width: 640px) {}
+
+@media (max-width: 750px) {
+  .wccDecor__img {
+    display: none;
+  }
+}
+
+@media (max-width: 550px) {
+  .wccNavBar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .wccNavBar__links {
+    flex-direction: column;
+  }
+  .wccMain  {
+    flex-direction: column;
+  }
+  wcc-main {
+    margin-top: 10px;
+  }
+  .wccMain {
+    gap: 10px;
+  }
 }
