@@ -1,9 +1,11 @@
-Light DOM web components - 8 (доделываем WccInput, вёрстка секций WccFeedback)
+Light DOM web components - 8 (доделываем WccInput, события, вёрстка секций WccFeedback)
 ---
 верстка Макета при помощи BaseComponent
 
   WccInput
   WccFeedback
+
+  генерация и ловля событий.
 
 макет https://www.figma.com/design/4GVHROE2r9DgF9gauTGkf8/Developer-Portfolio?node-id=0-1&p=f&t=OESpsE1XtWMVexro-0
 
@@ -20,8 +22,9 @@ Light DOM web components - 8 (доделываем WccInput, вёрстка се
 
 
 
-
-
+доделки:
+кнопку 'отправить' сместить направо
+	.wccFeedback__form text-align: right;
 
 ?надо переделать:
   - директорию wcc переименовать components
