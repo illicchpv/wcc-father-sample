@@ -140,7 +140,7 @@
       "  [<slot name=\"\"></slot>]",
       "  <div class=\"list-container\"></div>",
       "</div>",
-      "<body></body>"
+      "<body style=\"display:none!important\"></body>"
     ],
     "description": "Каркас HTML для компонента"
   },
