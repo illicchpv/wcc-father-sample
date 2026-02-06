@@ -8,7 +8,7 @@ window.addEventListener('wcc:all-components-ready', () => {
   // });
 
   const eventEmitter = document.getElementById('feedback');
-  eventEmitter.addEventListener('submit-feedback', (wccEvent) => {
+  eventEmitter?.addEventListener('submit-feedback', (wccEvent) => {
     console.log('document wccEvent.detail: ', wccEvent.detail);
     console.log('document wccEvent.detail.event: ', wccEvent.detail.event);
     wccEvent.detail.event.preventDefault();
