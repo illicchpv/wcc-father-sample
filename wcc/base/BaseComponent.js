@@ -10,6 +10,14 @@ export class BaseComponent extends HTMLElement {
     BaseComponent._registerInstance(this);
   }
 
+  connectedCallback() {
+    // Автоматическая загрузка шаблона, если он зарегистрирован через registerWcc
+    // и если наследник не переопределил connectedCallback (или вызвал super)
+    if (this.constructor._baseUrl) {
+      this.loadTemplate(this.constructor._baseUrl);
+    }
+  }
+
   static toKebab(name) {
     if (typeof name !== 'string' || !name) return '';
     const normalized = name.trim();
@@ -385,6 +393,9 @@ export class BaseComponent extends HTMLElement {
     if (template) {
       ctor.myTemplate = template;
     }
+
+    // Сохраняем URL скрипта в конструкторе для автоматической загрузки шаблона
+    ctor._baseUrl = url;
 
     if (!(ctor.prototype instanceof BaseComponent)) {
       console.error('[BaseComponent] registerWcc: ctor does not extend BaseComponent', ctor.name);
