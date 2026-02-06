@@ -1,0 +1,76 @@
+Light DOM web components - 9 ( исправления, улучшения, публикация)
+---
+верстка Макета при помощи BaseComponent
+
+заменить: <body></body> => <body style="display:none!important"></body>
+
+-----------
+Я переделал метод _loadProjects в WccPortfolio.js .
+Теперь он сразу присваивает переменной this._projects промис (Promise), который резолвится данными.
+Раньше this._projects был undefined до момента завершения fetch , 
+и если рендер начинался раньше, чем приходил ответ от сервера, возникала ошибка или пустой список.
+  _loadProjects() {
+    this._projects = fetch("projects.json")
+      .then(response => {
+        if (!response.ok) throw new Error('impossible');
+        return response.json();
+      })
+      .catch(e => {
+        console.warn(e.message);
+        return [];
+      });
+  }
+
+-----------
+добавил - автоматическая загрузка шаблона базовым компонентом
+теперь можно упростить компоненты без свойств и событий.
+
+WccCard
+WccDecor
+WccDeveloper
+WccFooter
+WccMain
+WccMySkills
+WccNavBar
+WccSocial
+
+-------------
+добавил скрипт wcc/base/inline-templates.js который переносит html шаблон в js const myTemplate \ и обратно --clear
+команды такие:
+	node wcc/base/inline-templates.js
+	node wcc/base/inline-templates.js --clear
+    для одного компонента, надо запустить в его директории	
+    cd wcc/WccSkills
+    node ../base/inline-templates.js
+
+----------------
+публикация на github
+
+----------------
+использование компонентов из опубликованного проекта.
+
+
+
+макет https://www.figma.com/design/4GVHROE2r9DgF9gauTGkf8/Developer-Portfolio?node-id=0-1&p=f&t=OESpsE1XtWMVexro-0
+
+см. https://github.com/illicchpv/wcc-father-sample
+
+
+
+
+
+
+
+
+
+
+
+
+доделки:
+кнопку 'отправить' сместить направо
+	.wccFeedback__form text-align: right;
+
+?надо переделать:
+  - директорию wcc переименовать components
+  - создать директорию sections и переместить туда компоненты-секции
+
