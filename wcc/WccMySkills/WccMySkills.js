@@ -1,27 +1,5 @@
 // подключить: <script data-wcc type="module" src="wcc/WccMySkills/WccMySkills.js"></script>
-const myTemplate = `<style>
-  .wccMySkills {
-    display: block;
-  }
-
-  .wccMySkills__title {
-    margin-bottom: 15px;
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 1.35;
-    letter-spacing: -0.02em;
-    color: var(--neutral-900);
-  }
-</style>
-<section class="wccMySkills container">
-  <h2 class="wccMySkills__title">
-    Работаю с разными языками и инструментами
-  </h2>
-
-  <wcc-skills large list="HTML,CSS,JavaScript,Wordpress,npm,ReactJs,NextJs,UI Design,SASS"></wcc-skills>
-</section>
-
-<body></body>`; // для прод, вставить сюда содержимое файла WccMySkills.html
+const myTemplate = ``; // для прод, вставить сюда содержимое файла WccMySkills.html
 //
 export class WccMySkills extends BaseComponent {
 

@@ -57,6 +57,7 @@ WccSocial
 см. https://github.com/illicchpv/wcc-father-sample
 
 
+github pages: https://illicchpv.github.io/wcc-father-sample/
 
 
 
@@ -64,12 +65,6 @@ WccSocial
 
 
 
-
-
-
-доделки:
-кнопку 'отправить' сместить направо
-	.wccFeedback__form text-align: right;
 
 ?надо переделать:
   - директорию wcc переименовать components

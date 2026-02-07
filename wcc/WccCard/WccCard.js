@@ -1,55 +1,5 @@
 // подключить: <script data-wcc type="module" src="wcc/WccCard/WccCard.js"></script>
-const myTemplate = `<style>
-  .wccCard {
-    display: block;
-  }
-
-  .wccCard__img {
-    width: 100%;
-  }
-
-  .wccCard__content {
-    padding: 16px;
-  }
-
-  .wccCard__title {
-    margin-bottom: 8px;
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 1.35;
-    letter-spacing: -0.02em;
-    color: var(--brand-900);
-  }
-
-  .wccCard__text {
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 1.5;
-    color: var(--neutral-900);
-    margin-bottom: 17px;
-    margin-top: 16px;
-  }
-
-  .wccCard__buttons {
-    display: flex;
-    align-items: center;
-    gap: 25px;
-  }
-</style>
-<div class="wccCard">
-  <slot name="img"></slot>
-
-  <div class="wccCard__content">
-    <slot name="title"></slot>
-    <slot name="skills"></slot>
-    <slot name="text"></slot>
-    <div class="wccCard__buttons">
-      <slot name="buttons"></slot>
-    </div>
-  </div>
-</div>
-
-<body></body>`; // для прод, вставить сюда содержимое файла WccCard.html
+const myTemplate = ``; // для прод, вставить сюда содержимое файла WccCard.html
 //
 export class WccCard extends BaseComponent {
 
