@@ -1,4 +1,4 @@
-Light DOM web components - 9 ( исправления, улучшения, публикация)
+Light DOM web components - 9 (исправления, улучшения, github-pages публикация)
 ---
 верстка Макета при помощи BaseComponent
 
@@ -25,7 +25,7 @@ WccSocial
     для одного компонента, надо запустить в его директории	
     cd wcc/WccSkills
     node ../base/inline-templates.js
-    
+
 ЗАМЕЧАНИЕ: при ручном переносе html шаблона в js, выражения типа: ${что то там} надо экранировать \${что то там}
 
 -----------
@@ -45,7 +45,6 @@ WccSocial
       });
   }
 
-
 ----------------
 публикация на github
 
@@ -54,21 +53,14 @@ WccSocial
 
 
 
-макет https://www.figma.com/design/4GVHROE2r9DgF9gauTGkf8/Developer-Portfolio?node-id=0-1&p=f&t=OESpsE1XtWMVexro-0
+макет: https://www.figma.com/design/4GVHROE2r9DgF9gauTGkf8/Developer-Portfolio?node-id=0-1&p=f&t=OESpsE1XtWMVexro-0
 
 см. https://github.com/illicchpv/wcc-father-sample
 
 
-github pages: https://illicchpv.github.io/wcc-father-sample/
-
-
-
-
-
+github-pages: https://illicchpv.github.io/wcc-father-sample/
 
 
 
 ?надо переделать:
-  - директорию wcc переименовать components
-  - создать директорию sections и переместить туда компоненты-секции
-
+  - создать директорию wcc-sections и переместить туда компоненты-секции
