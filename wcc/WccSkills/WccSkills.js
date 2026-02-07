@@ -1,5 +1,43 @@
 // подключить: <script data-wcc type="module" src="wcc/WccSkills/WccSkills.js"></script>
-const myTemplate = ``; // для прод, вставить сюда содержимое файла WccSkills.html
+const myTemplate = `<style>
+  .wccSkills {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 0;
+    flex-wrap: wrap;
+  }
+
+  .wccSkills__item {
+    border: 1px solid var(--brand-500);
+    border-radius: 4px;
+    padding: 5px 8px 4px;
+
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--neutral-900);
+    white-space: nowrap;
+  }
+
+  .wccSkills.large .wccSkills__item {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--neutral-900);
+  }
+</style>
+
+<!-- include -->
+<ul class="wccSkills \${this.large ? 'large' : ''}">
+</ul>
+<!-- /include -->
+
+<!-- innerTemplate:innerTemplateName -->
+<li class="wccSkills__item">
+  \${this.item}
+</li>
+<!-- /innerTemplate -->`; // для прод, вставить сюда содержимое файла WccSkills.html
 //
 export class WccSkills extends BaseComponent {
   constructor() {

@@ -1,19 +1,95 @@
 // подключить: <script data-wcc type="module" src="wcc/WccPortfolio/WccPortfolio.js"></script>
-const myTemplate = ``; // для прод, вставить сюда содержимое файла WccPortfolio.html
+const myTemplate = `<style>
+  .wccPortfolio {
+    display: block;
+  }
+
+  .wccPortfolio__title {
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 1.25;
+    letter-spacing: -0.03em;
+    color: var(--brand-900);
+    margin-bottom: 32px;
+  }
+
+  .wccPortfolio__cards {
+    column-gap: 70px;
+    row-gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+</style>
+<section class="wccPortfolio container">
+
+  <h2 class="wccPortfolio__title">Последние проекты</h2>
+
+  <div class="wccPortfolio__cards">
+  </div>
+
+</section>
+
+<!-- innerTemplate:innerTemplateName -->
+<wcc-card>
+  <img slot="img" class="wccCard__img" src="\${this.item.img}" alt="\${this.item.imgAlt}">
+  <h3 class="wccCard__title" slot="title">\${this.item.title}</h3>
+  <wcc-skills list="HTML,CSS,JavaScript,Git,Vitejs" slot="skills"></wcc-skills>
+
+  <p class="wccCard__text" slot="text">\${this.item.text}</p>
+
+  <wcc-button slot="buttons" href="\${this.item.codeHref}">
+    <svg slot="img" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g clip-path="url(#clip0_314_90)">
+        <path
+          d="M9.4 16.6L4.8 12L9.4 7.4L8 6L2 12L8 18L9.4 16.6ZM14.6 16.6L19.2 12L14.6 7.4L16 6L22 12L16 18L14.6 16.6Z"
+          fill="currentColor" />
+      </g>
+      <defs>
+        <clipPath id="clip0_314_90">
+          <rect width="24" height="24" fill="white" />
+        </clipPath>
+      </defs>
+    </svg>
+
+    <span slot="text">код</span>
+  </wcc-button>
+
+  <wcc-button slot="buttons" href="\${this.item.demoHref}">
+    <svg slot="img" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g clip-path="url(#clip0_314_97)">
+        <path
+          d="M19.77 5.02995L21.17 6.42995L8.43 19.17L2.83 13.57L4.23 12.17L8.43 16.37L19.77 5.02995ZM19.77 2.19995L8.43 13.54L4.23 9.33995L0 13.57L8.43 22L24 6.42995L19.77 2.19995Z"
+          fill="currentColor" />
+      </g>
+      <defs>
+        <clipPath id="clip0_314_97">
+          <rect width="24" height="24" fill="white" />
+        </clipPath>
+      </defs>
+    </svg>
+
+    <span slot="text">Демо</span>
+  </wcc-button>
+</wcc-card>
+<!-- /innerTemplate -->
+
+<body></body>`; // для прод, вставить сюда содержимое файла WccPortfolio.html
 //
 export class WccPortfolio extends BaseComponent {
   constructor() {
     super(); this._refs = {};
     this._loadProjects();
   }
-  async _loadProjects() {
-    try {
-      const response = await fetch("projects.json");
-      if (!response.ok) throw new Error('impossible');
-      this._projects = response.json();
-    } catch (e) {
-      console.warn(e.message);
-    }
+  _loadProjects() {
+    this._projects = fetch("projects.json")
+      .then(response => {
+        if (!response.ok) throw new Error('impossible');
+        return response.json();
+      })
+      .catch(e => {
+        console.warn(e.message);
+        return [];
+      });
   }
 
   connectedCallback() {
@@ -35,7 +111,7 @@ export class WccPortfolio extends BaseComponent {
       const items = await this._projects;
       const container = this.querySelector('.wccPortfolio__cards');
       this.renderInnerTemplateList(items, this._innerTemplate, container);
-    } catch(e) {
+    } catch (e) {
       console.warn(e.message);
     }
   }

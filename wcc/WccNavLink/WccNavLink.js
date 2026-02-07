@@ -1,5 +1,25 @@
 // подключить: <script data-wcc type="module" src="wcc/WccNavLink/WccNavLink.js"></script>
-const myTemplate = ``; // для прод, вставить сюда содержимое файла WccNavLink.html
+const myTemplate = `<style>
+  wcc-nav-link {
+    font-weight: 400;
+  }
+  wcc-nav-link.active {
+    font-weight: 700;
+  }
+  .wccNavLink {
+    display: inline-block;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--brand-900);
+    white-space: nowrap;
+  }
+  .wccNavLink:hover {
+    text-decoration: underline;
+  }
+</style>
+<a class="wccNavLink" href="#">
+  <slot></slot>
+</a>`; // для прод, вставить сюда содержимое файла WccNavLink.html
 //
 export class WccNavLink extends BaseComponent {
   constructor() {
