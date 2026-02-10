@@ -16,6 +16,9 @@ export class BaseComponent extends HTMLElement {
     if (this.constructor._baseUrl) {
       this.loadTemplate(this.constructor._baseUrl);
     }
+
+    // Синхронизация атрибутов из дефолтных свойств (отложенная, чтобы не ломать React)
+    this._reflectDefaultsToAttributes();
   }
 
   static toKebab(name) {
@@ -33,9 +36,10 @@ export class BaseComponent extends HTMLElement {
    */
   static get observedAttributes() {
     const props = this.properties || {};
-    return Object.values(props)
-      .filter(prop => prop.attribute)
-      .map(prop => prop.attribute);
+    return Object.keys(props).map(name => {
+      const config = props[name];
+      return config.attribute !== undefined ? config.attribute : BaseComponent.toKebab(name);
+    }).filter(Boolean);
   }
 
   /**
@@ -68,7 +72,7 @@ export class BaseComponent extends HTMLElement {
 
     Object.keys(props).forEach(name => {
       const config = props[name];
-      const attributeName = config.attribute;
+      const attributeName = config.attribute !== undefined ? config.attribute : BaseComponent.toKebab(name);
 
       // Валидация: Boolean свойство не должно иметь default: true,
       // так как булевы атрибуты работают по принципу наличия (есть = true).
@@ -130,17 +134,31 @@ export class BaseComponent extends HTMLElement {
 
       // Применяем начальное значение через сеттер, чтобы синхронизировать атрибуты
       if (this[internalName] !== null && this[internalName] !== undefined) {
-        // Вызываем сеттер, но аккуратно, чтобы не триггерить лишние колбэки если не надо
-        // Но нам надо синхронизировать атрибут
-        const val = this[internalName];
-        // Сброс для триггера сеттера (немного хак, но надежно)
-        // this[name] = val; 
-        // Проще вручную выставить атрибут если его нет
-        if (attributeName && !this.hasAttribute(attributeName)) {
-          if (val !== null && val !== undefined && val !== false) {
-            const attrValue = config.type === Boolean ? '' : String(val);
-            this.setAttribute(attributeName, attrValue);
-          }
+        // Раньше мы здесь сразу устанавливали атрибут, но это вызывает ошибку в React (NotSupportedError: The result must not have attributes),
+        // если компонент создается через document.createElement (React 18+ createRoot).
+        // Поэтому переносим синхронизацию атрибутов в connectedCallback (_reflectDefaultsToAttributes).
+      }
+    });
+  }
+
+  /**
+   * Синхронизирует дефолтные значения свойств с атрибутами.
+   * Вызывается из connectedCallback, когда элемент уже в DOM и React закончил его создание.
+   */
+  _reflectDefaultsToAttributes() {
+    const props = this.constructor.properties || {};
+
+    Object.keys(props).forEach(name => {
+      const config = props[name];
+      const attributeName = config.attribute !== undefined ? config.attribute : BaseComponent.toKebab(name);
+
+      if (attributeName && !this.hasAttribute(attributeName)) {
+        // Берем текущее значение свойства (оно уже инициализировано в _initProperties)
+        const val = this[name];
+
+        if (val !== null && val !== undefined && val !== false) {
+          const attrValue = config.type === Boolean ? '' : String(val);
+          this.setAttribute(attributeName, attrValue);
         }
       }
     });
@@ -157,7 +175,8 @@ export class BaseComponent extends HTMLElement {
 
     for (const propName in props) {
       const config = props[propName];
-      if (config.attribute === name) {
+      const attributeName = config.attribute !== undefined ? config.attribute : BaseComponent.toKebab(propName);
+      if (attributeName === name) {
         let value = newValue;
 
         // Приведение типов
@@ -506,6 +525,21 @@ export class BaseComponent extends HTMLElement {
       BaseComponent._registry = {scripts: {}, scheduled: false};
     }
     return BaseComponent._registry;
+  }
+
+  /**
+   * Динамически загружает скрипт компонента.
+   * Полезно для использования в React/Vite, чтобы избежать ошибок импорта из public.
+   * 
+   * @param {string} src - Путь к скрипту
+   */
+  static loadWccComponent(src) {
+    if (!src) return;
+    const s = document.createElement('script');
+    s.type = 'module';
+    s.src = src;
+    s.setAttribute('data-wcc', '');
+    document.head.appendChild(s);
   }
 
   static _noteUsage(url) {
