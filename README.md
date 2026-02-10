@@ -1,3 +1,10 @@
+[github проекта 👉 ](https://github.com/illicchpv/wcc-father-sample)
+[github page проекта 👉 ](https://illicchpv.github.io/wcc-father-sample/)
+
+# далее общая информация и относящаяся к wcc-father
+
+---
+
 # WCC - Web Components
 
 [github](https://github.com/illicchpv/wcc-father)
