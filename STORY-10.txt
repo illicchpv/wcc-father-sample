@@ -1,4 +1,4 @@
-Light DOM web components - 9 (исправления, улучшения, github-pages публикация)
+Light DOM web components - 10 (исправления, улучшения, github-pages публикация)
 ---
 верстка Макета при помощи BaseComponent
 
