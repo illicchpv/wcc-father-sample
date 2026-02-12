@@ -1,6 +1,39 @@
 Light DOM web components - 11 (использование web components в React)
 ---
 верстка Макета при помощи BaseComponent
+Переносим проект в React
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
 
->npm create vite@latest wcc-sample-react
+npm create vite@latest wcc-sample-react
 
+в public копируем:
+	css img js projects.json 
+
+в index.html
+	img/logo.svg  
+  link href="css/normalize.css" rel="stylesheet"
+  link href="css/style.css" rel="stylesheet"
+
+подключаем скрипты компонентов	
+  script type="module" src="https://illicchpv.github.io/wcc-father-sample/wcc/base/BaseComponent.js"/script
+  ...
+
+подключаем остальное
+  script type="module" src="js/main.js"/script
+  link href="css/media.css" rel="stylesheet"
+
+чистим
+
+попробуем компоненты использовать локально.
+
+сборка релиза
+vite.config.js
+	import {defineConfig} from 'vite';
+	import react from '@vitejs/plugin-react';
+
+	// https://vite.dev/config/
+	export default defineConfig({
+	  base: './',
+	  plugins: [react()],
+	});
