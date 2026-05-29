@@ -42,6 +42,18 @@
     font-weight: 400;
     font-size: 16px;
     line-height: 1.5;
+    color: var(--neutral-500);
+  }
+
+  .wccInput:hover+.wccInput__label {
+    color: var(--neutral-900);
+  }
+
+  .wccInput:not(:placeholder-shown)+.wccInput__label {
+    color: var(--neutral-900);
+  }
+
+  .wccInput:focus+.wccInput__label {
     color: var(--neutral-900);
   }
 </style>
@@ -49,12 +61,12 @@
 <div class="wccInput__group">
   <label>
     <!-- if(this.type==='textarea') -->
-      <textarea class="wccInput textarea" name="client_name" placeholder=" " autocomplete="off"></textarea>
+    <textarea class="wccInput textarea" name="client_name" placeholder=" " autocomplete="off"></textarea>
     <!-- endif -->
     <!-- if(this.type!=='textarea') -->
-      <input class="wccInput" type="text" name="client_name" placeholder=" " autocomplete="off">
+    <input class="wccInput" type="text" name="client_name" placeholder=" " autocomplete="off">
     <!-- endif -->
-    
+
     <span class="wccInput__label">Ваше имя</span>
   </label>
 </div>
